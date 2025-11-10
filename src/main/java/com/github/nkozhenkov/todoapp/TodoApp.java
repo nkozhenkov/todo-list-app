@@ -23,6 +23,9 @@ public class TodoApp {
                 case "просмотр":
                     tasksList.showTaskList();
                     break;
+                case "удалить":
+                    tasksList.deleteTask();
+                    break;
                 case "завершить":
                     System.out.println("Программа завершила свою работу.");
                     isRunning = false;

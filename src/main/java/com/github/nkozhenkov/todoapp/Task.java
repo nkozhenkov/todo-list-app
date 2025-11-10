@@ -11,9 +11,11 @@ public class Task {
 
     private String taskName;
     private String taskDescription;
+    private int ID;
 
     @Override
     public String toString() {
-        return "Задача: " + getTaskName() + "\n" + "Описание: " + getTaskDescription() + "\n";
+        return "Задача: " + getTaskName() + "\n" + "Описание: " + getTaskDescription() + "\n" +
+                "ID задачи: " + getID();
     }
 }
