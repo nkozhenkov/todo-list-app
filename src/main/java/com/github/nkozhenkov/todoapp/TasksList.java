@@ -39,15 +39,13 @@ public class TasksList {
         System.out.println("Введите ID задачи, которую хотите удалить");
         int enteredID = Integer.parseInt(scanner.nextLine().trim());
 
-        for (Task task : tasksList) {
-            if (task.getID() == enteredID) {
-                tasksList.remove(task);
-                System.out.println("Задача с ID " + enteredID + " успешно удалена." + "\n");
-                MessageConstants.printAvailableCommands();
-                return;
-            }
+        boolean removed = tasksList.removeIf(task -> task.getID() == enteredID);
+
+        if (removed) {
+            System.out.println("Задача с ID " + enteredID + " успешно удалена." + "\n");
+        } else {
+            System.out.println("Задача с ID " + enteredID + " не найдена!");
         }
-        System.out.println("Задача с ID " + enteredID + " не найдена!");
         MessageConstants.printAvailableCommands();
 
     }
