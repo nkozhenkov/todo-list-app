@@ -16,7 +16,7 @@ public class TasksList {
         String taskDescription = scanner.nextLine();
         Task newTask = new Task(taskName, taskDescription, setID());
         tasksList.add(newTask);
-        System.out.println("Задача успешно создана!");
+        System.out.println("Задача успешно создана!" + "\n");
         MessageConstants.printAvailableCommands();
 
     }
@@ -24,7 +24,8 @@ public class TasksList {
     public void showTaskList() {
 
         if (tasksList.isEmpty()) {
-            System.out.println("Список задач пуст.");
+            System.out.println("Список задач пуст." + "\n");
+            MessageConstants.printAvailableCommands();
             return;
         }
 
@@ -36,12 +37,13 @@ public class TasksList {
     public void deleteTask() {
 
         System.out.println("Введите ID задачи, которую хотите удалить");
-        int enteredID = Integer.parseInt(scanner.nextLine());
+        int enteredID = Integer.parseInt(scanner.nextLine().trim());
 
         for (Task task : tasksList) {
             if (task.getID() == enteredID) {
                 tasksList.remove(task);
-                System.out.println("Задача с ID " + enteredID + " успешно удалена.");
+                System.out.println("Задача с ID " + enteredID + " успешно удалена." + "\n");
+                MessageConstants.printAvailableCommands();
                 return;
             }
         }
@@ -52,6 +54,8 @@ public class TasksList {
 
     private int setID() {
 
+        int futureID = 1;
+
         if (tasksList.isEmpty()) {
             return 1;
         }
@@ -60,8 +64,6 @@ public class TasksList {
         for (Task task : tasksList) {
             existingIDs.add(task.getID());
         }
-
-        int futureID = 1;
 
         while (existingIDs.contains(futureID)) {
             futureID++;

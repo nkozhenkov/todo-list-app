@@ -11,7 +11,7 @@ public class TodoApp {
 
         Scanner scanner = new Scanner(System.in);
 
-        System.out.println("Введите команду:");
+        System.out.println("\n" + "Введите команду:");
 
         boolean isRunning = true;
         while (isRunning) {
