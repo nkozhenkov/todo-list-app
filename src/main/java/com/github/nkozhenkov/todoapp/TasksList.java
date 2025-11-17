@@ -50,6 +50,27 @@ public class TasksList {
 
     }
 
+    public void changeTask() {
+        System.out.println("Введите ID задачи, которую хотите изменить");
+        int enteredID = Integer.parseInt(scanner.nextLine().trim());
+
+        for (Task task : tasksList) {
+            if (task.getID() == enteredID) {
+                System.out.println("Вы редактируете задачу:");
+                System.out.println(task + "\n");
+                System.out.println("Введите новое название задачи:");
+                String newName = scanner.nextLine().trim();
+                task.setTaskName(newName);
+                System.out.println("Введите новое описание задачи:");
+                String newDescription = scanner.nextLine().trim();
+                task.setTaskDescription(newDescription);
+                System.out.println("Задача успешно обновлена!");
+                return;
+            }
+        }
+        System.out.println("Задача с ID " + enteredID + " не найдена!");
+    }
+
     private int setID() {
 
         int futureID = 1;
